@@ -19,6 +19,17 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.listen(3000, () => {
-  console.log("Server on port 3000");
+app.get("/about", (req, res) => {
+  res.send("About Me");
+});
+app.get("/contact", (req, res) => {
+    res.send("Formulario Contacto");
+  });
+
+  app.get("/test", (req, res) => {
+    res.send('<h1>TEST</h1>');
+  });
+
+app.listen(5000, () => {
+  console.log("Server on port 5000");
 });
