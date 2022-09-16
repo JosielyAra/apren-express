@@ -15,20 +15,23 @@ const express = require("express");
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.get("/user", (req, res) => {
+  res.json({
+    username: "Cameron",
+    latname: "Boice",
+  });
 });
 
-app.get("/about", (req, res) => {
-  res.send("About Me");
+app.post("/about", (req, res) => {
+  res.send("PETICION POST");
 });
-app.get("/contact", (req, res) => {
-    res.send("Formulario Contacto");
-  });
+app.put("/contact", (req, res) => {
+  res.send("PETICION SEND");
+});
 
-  app.get("/test", (req, res) => {
-    res.send('<h1>TEST</h1>');
-  });
+app.delete("/test", (req, res) => {
+  res.send("PETICION DELETE");
+});
 
 app.listen(5000, () => {
   console.log("Server on port 5000");
