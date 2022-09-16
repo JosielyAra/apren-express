@@ -12,8 +12,8 @@ server.listen(3000, () => {
 */
 
 const express = require("express");
-
 const app = express();
+app.use(express.json());
 
 app.get("/user", (req, res) => {
   res.json({
@@ -22,15 +22,17 @@ app.get("/user", (req, res) => {
   });
 });
 
-app.post("/about", (req, res) => {
+app.post("/user/:id", (req, res) => {
+  console.log(req.body);
+  console.log(req.params);
   res.send("PETICION POST");
 });
 app.put("/contact", (req, res) => {
   res.send("PETICION SEND");
 });
 
-app.delete("/test", (req, res) => {
-  res.send("PETICION DELETE");
+app.delete("/user/:id", (req, res) => {
+  res.send(`User ${req.params.id} deleted`);
 });
 
 app.listen(5000, () => {
